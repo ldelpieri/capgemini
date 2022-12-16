@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class ProductoPersonalizadoDTO {
+public class ProductoPersonalizadoPostDTO {
     Integer codigo;
     Integer productoPersonalizable;
     Integer estado;

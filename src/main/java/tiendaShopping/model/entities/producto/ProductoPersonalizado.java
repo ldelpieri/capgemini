@@ -1,5 +1,6 @@
 package tiendaShopping.model.entities.producto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import tiendaShopping.model.entities.producto.estado.Pausa;
 import tiendaShopping.converters.EstadoConverter;
 import tiendaShopping.model.entities.producto.estado.Estado;
@@ -17,14 +18,15 @@ public class ProductoPersonalizado {
     @Id @GeneratedValue @Column(name = "prod_pers_codigo")
     private Integer codigo;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "prod_pers_producto_personalizable")
     private ProductoPersonalizable productoPersonalizable;
 
+    @JsonIgnore
     @Column(name = "prod_pers_estado")
     @Convert(converter = EstadoConverter.class)
     Estado estado;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "prod_pers_tienda")
     Tienda tienda;
 

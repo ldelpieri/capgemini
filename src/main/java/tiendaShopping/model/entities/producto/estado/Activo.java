@@ -18,4 +18,9 @@ public class Activo extends Estado {
     public ProductoPersonalizado vender(ProductoPersonalizado producto) {
        return producto;
     }
+
+    @Override
+    public String nombre() {
+        return "Activo";
+    }
 }

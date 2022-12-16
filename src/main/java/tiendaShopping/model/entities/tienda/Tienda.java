@@ -17,15 +17,15 @@ public class Tienda {
     @Column(name = "tien_nombre")
     private String nombre;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "tien_vendedor")
     private Vendedor vendedor;
 
-    @OneToMany(mappedBy = "tienda", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "tienda")
     private List<ProductoPersonalizado> productos;
 
     @Convert(converter = MedioDePagoConverter.class)
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(name = "Medio_aceptado",
             joinColumns = @JoinColumn(name = "Medi_acep_tienda"),
             inverseJoinColumns = @JoinColumn(name = "medi_acep_medio_de_pago"))

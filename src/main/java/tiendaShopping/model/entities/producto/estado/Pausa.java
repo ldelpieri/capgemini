@@ -17,4 +17,9 @@ public class Pausa extends Estado {
     public ProductoPersonalizado vender(ProductoPersonalizado producto) throws Exception {
         throw new Exception("No se puede vender un producto en pausa");
     }
+
+    @Override
+    public String nombre() {
+        return "Pausa";
+    }
 }
