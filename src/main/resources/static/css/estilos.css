@@ -1,0 +1,190 @@
+body {
+    background-color: #212529;
+}
+
+#nombre-tienda {
+    color: white;
+    font-size: 18pt;
+    margin-left: 20px;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+.bi-cart-fill {
+    color: white;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+#texto-boton-carrito {
+    text-decoration: none;
+    color: white;
+    font-size: 14pt;
+    font-weight:600;
+    margin-right: 10px;
+}
+
+.boton-carrito {
+    display: flex;
+    align-items: center;
+}
+
+.bi-shop, .bi-cart-fill:hover {
+    color: #FEC11D;
+}
+
+.nombre-producto {
+    line-height: 20px;
+    font-size: 14pt;
+}
+
+.precio-producto {
+  font-size: 18pt;
+}
+
+.link-producto, .link-producto:hover {
+    text-decoration: none;
+    color: #212529;
+}
+.boton-agregar-carrito {
+  padding: 8px;
+  margin-left: 20px;
+}
+
+button {
+    background-color: #FEC11D;
+    font-weight: 600;
+    border: none;
+}
+
+.container-producto {
+    max-width: 800px;
+    min-height: 450px;
+}
+
+.foto-carrito {
+  max-height: 80px;
+}
+
+.titulo-carrito {
+  margin-bottom: 70px;
+}
+
+.texto-producto-carrito {
+  text-decoration: none;
+  color: #212529;
+  font-weight: 700;
+}
+
+.boton-eliminar-carrito {
+  border: none;
+  background: none;
+}
+
+.precio-unitario-carrito {
+  color: #FEC11D;
+}
+
+.total-carrito {
+  color: #212529;
+  font-size: 20pt;
+  font-weight: 700;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
+.contenedor-total-carrito {
+  max-width: 300px;
+}
+
+.boton-comprar-carrito {
+  background-color: #212529;
+  border-radius: none;
+  border: none;
+  color: #ffffff;
+  width: 200px;
+}
+
+.boton-comprar-carrito a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.boton-comprar-carrito:hover {
+  background-color: #FEC11D;
+  color: #212529;
+  font-weight: 600;
+}
+
+.monto-total-carrito {
+  margin-bottom: 30px;
+}
+
+/* Botón cantidad de productos */
+.inline-group {
+    max-width: 9rem;
+    padding: .5rem;
+  }
+  
+  .inline-group .form-control {
+    text-align: right;
+  }
+  
+  .form-control[type="number"]::-webkit-inner-spin-button,
+  .form-control[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .boton-cantidad {
+    color: white;
+    border-radius: 0;
+    border-color: #212529;
+    background-color: #212529;
+  }
+
+  .boton-cantidad:hover {
+    background-color: #FEC11D;
+    border-color: #FEC11D;
+  }
+
+  .input-cantidad {
+    border-color: #212529;
+    text-align: center;
+  }
+
+  .input-cantidad:focus {
+    box-shadow: none;
+    border-color: #212529;
+    width: 40px;
+  }
+  
+  .boton-agregar-cantidad {
+    padding: 0;
+  }
+
+  .boton-cantidad-carrito {
+    height: 30px;
+    width: 30px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+  }
+
+  .input-cantidad-carrito {
+    height: 30px;
+    max-width: 40px;
+  }
+
+  /*fin boton*/
+
+  .fila-form {
+    height: 100%;
+  }
+
+
+  
