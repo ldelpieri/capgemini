@@ -6,6 +6,7 @@ import tiendaShopping.DTO.*;
 import tiendaShopping.model.entities.producto.ProductoPersonalizado;
 import tiendaShopping.model.entities.tienda.MedioDePago;
 import tiendaShopping.model.entities.tienda.Tienda;
+import tiendaShopping.model.entities.tienda.compra.EmailService;
 import tiendaShopping.model.entities.tienda.compra.Factura;
 import tiendaShopping.model.entities.tienda.compra.ItemFactura;
 import tiendaShopping.repositories.FacturaRepository;
@@ -32,8 +33,7 @@ public class ControllerTienda {
 
     @GetMapping(path = "/{tiendaCodigo}/nombre")
     public NombreTiendaDTO nombreTienda(@PathVariable Integer tiendaCodigo) {
-        NombreTiendaDTO nombre = new NombreTiendaDTO(repoTienda.findById(tiendaCodigo).get().getNombre());
-        return nombre;
+        return new NombreTiendaDTO(repoTienda.findById(tiendaCodigo).get().getNombre());
     }
 
     @GetMapping(path = "/{tiendaCodigo}/producto")
@@ -57,7 +57,7 @@ public class ControllerTienda {
         Tienda tienda = repoTienda.findById(tiendaCodigo).get();
         ProductoPersonalizado producto = tienda.getProductosPersonalizados().stream().filter(prod -> prod.getCodigo() == productoCodigo).findFirst().get();
         if (producto != null) {
-            return new ProductoDetalleTiendaGetDTO(producto.getCodigo(), producto.getNombre(), producto.getPrecio(), producto.getPersonalizacion(), producto.getDescripcion(), producto.getTiempoDeFabricacion(), producto.getFoto());
+            return new ProductoDetalleTiendaGetDTO(producto.getCodigo(), producto.getNombre(), producto.getPrecio(), producto.getNombrePersonalizacion() , producto.getPersonalizacion(), producto.getDescripcion(), producto.getTiempoDeFabricacion(), producto.getFoto());
         } else {
             throw new IllegalStateException("No se encontró el producto");
         }
@@ -98,7 +98,9 @@ public class ControllerTienda {
         Factura finalFactura = factura;
         items.stream().forEach(item -> item.setFactura(finalFactura));
 
-        repoItem.saveAll(items);
+        items = repoItem.saveAll(items);
+
+        EmailService.enviarComprobante(factura, items);
 
         return factura.getCodigo();
     }

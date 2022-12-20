@@ -7,6 +7,7 @@ import lombok.Setter;
 public class ProductoInicioTiendaGetDTO {
     private Integer codigo;
     private String nombre;
+    private String personalizacion;
     private Double precio;
     private String foto;
 

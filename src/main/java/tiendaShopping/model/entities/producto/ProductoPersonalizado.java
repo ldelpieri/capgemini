@@ -54,6 +54,10 @@ public class ProductoPersonalizado {
         return this.productoPersonalizable.getNombre();
     }
 
+    public String getNombrePersonalizacion() {
+        return this.productoPersonalizable.getNombrePersonalizacion();
+    }
+
     public Double getPrecio() {
         return this.productoPersonalizable.getPrecio();
     }

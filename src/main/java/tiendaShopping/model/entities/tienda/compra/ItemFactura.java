@@ -35,4 +35,19 @@ public class ItemFactura {
         this.cantidad = cantidad;
         this.precio = precio;
     }
+
+    public String getNombre() {
+        return this.productoPersonalizado.getNombre();
+    }
+
+    public String getTiempoDeFabricacion() {
+        Integer tiempo = this.productoPersonalizado.getTiempoDeFabricacion();
+        String dia;
+        if(tiempo > 1) {
+            dia = " días";
+        } else {
+            dia = " día";
+        }
+        return tiempo + dia;
+    }
 }

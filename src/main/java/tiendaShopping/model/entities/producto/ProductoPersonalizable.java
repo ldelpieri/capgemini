@@ -31,7 +31,11 @@ public class ProductoPersonalizable {
     }
 
     public String getNombre() {
-        return this.productoBase.getNombre() + " " + this.personalizacion.getNombre();
+        return this.productoBase.getNombre();
+    }
+
+    public String getNombrePersonalizacion() {
+        return this.personalizacion.getNombre();
     }
 
     public Double getPrecio() {

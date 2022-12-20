@@ -9,11 +9,11 @@ use tienda_shopping;
 
 create table Producto_base (
 	prod_base_codigo integer auto_increment primary key, -- PK
-	prod_base_nombre char(50) not null,
+	prod_base_nombre char(255) not null,
 	prod_base_descripcion text not null,
 	prod_base_precio decimal(12,2) not null,
 	prod_base_tiempo decimal(12,2) not null,
-    prod_base_foto char(255)
+    prod_base_foto text
 );
 
 create table Personalizacion (
