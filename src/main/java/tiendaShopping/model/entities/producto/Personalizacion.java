@@ -16,4 +16,9 @@ public class Personalizacion {
     private String nombre;
     @Column(name = "pers_precio")
     private Double precio;
+
+    public void actualizar(Personalizacion personalizacion) {
+        this.nombre = personalizacion.getNombre();
+        this.precio = personalizacion.getPrecio();
+    }
 }

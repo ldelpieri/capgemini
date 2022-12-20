@@ -8,4 +8,6 @@ public abstract class Estado {
     public abstract ProductoPersonalizado vender(ProductoPersonalizado producto) throws Exception;
 
     public abstract String nombre();
+
+    public abstract Boolean sePuedeListar();
 }

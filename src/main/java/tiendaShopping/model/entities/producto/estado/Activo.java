@@ -23,4 +23,9 @@ public class Activo extends Estado {
     public String nombre() {
         return "Activo";
     }
+
+    @Override
+    public Boolean sePuedeListar() {
+        return true;
+    }
 }

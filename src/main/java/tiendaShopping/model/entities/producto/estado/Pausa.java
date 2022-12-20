@@ -22,4 +22,9 @@ public class Pausa extends Estado {
     public String nombre() {
         return "Pausa";
     }
+
+    @Override
+    public Boolean sePuedeListar() {
+        return false;
+    }
 }

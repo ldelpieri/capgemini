@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Optional;
 
 @Entity
 @Getter @Setter
@@ -14,11 +13,11 @@ public class ProductoPersonalizable {
     @Column(name = "prod_pers_codigo")
     private Integer codigo;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "prod_pers_producto_base")
     private ProductoBase productoBase;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "prod_pers_personalizacion")
     private Personalizacion personalizacion;
 
@@ -29,5 +28,21 @@ public class ProductoPersonalizable {
 
     public ProductoPersonalizable() {
 
+    }
+
+    public String getNombre() {
+        return this.productoBase.getNombre() + " " + this.personalizacion.getNombre();
+    }
+
+    public Double getPrecio() {
+        return this.productoBase.getPrecio() + this.personalizacion.getPrecio();
+    }
+
+    public Integer getTiempoDeFabricacion() {
+        return this.productoBase.getTiempoDeFabricacion();
+    }
+
+    public String getFoto() {
+        return this.productoBase.getFoto();
     }
 }

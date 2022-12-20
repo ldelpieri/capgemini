@@ -13,7 +13,7 @@ public class Vendedor {
     @Column(name = "vend_nombre")
     private String nombre;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "vend_tienda")
     private Tienda tienda;
 

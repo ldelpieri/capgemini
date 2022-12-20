@@ -4,10 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class ProductoPersonalizadoPostDTO {
+public class ProductoPersonalizadoPutDTO {
     private String nombre;
-    private Integer productoPersonalizable;
     private String personalizacion;
     private String estado;
-    private Integer tienda;
 }

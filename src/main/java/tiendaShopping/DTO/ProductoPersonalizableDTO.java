@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Getter @Setter
 public class ProductoPersonalizableDTO {
-    Integer productoBase;
-    Integer personalizacion;
+    private Integer productoBase;
+    private Integer personalizacion;
 }

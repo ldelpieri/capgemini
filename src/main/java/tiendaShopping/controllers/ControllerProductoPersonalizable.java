@@ -16,6 +16,7 @@ import java.util.Optional;
 import tiendaShopping.DTO.ProductoPersonalizableDTO;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path = "/productoPersonalizable")
 public class ControllerProductoPersonalizable {
 
@@ -29,6 +30,11 @@ public class ControllerProductoPersonalizable {
     @GetMapping(path = {"","/"})
     public List<ProductoPersonalizable> productosPersonalizables() {
         return repoPersonalizable.findAll();
+    }
+
+    @GetMapping(path = "/{codigo}")
+    public ProductoPersonalizable productosPersonalizable(@PathVariable Integer codigo) {
+        return repoPersonalizable.findById(codigo).get();
     }
 
     @PostMapping(path = {"","/"})

@@ -10,9 +10,10 @@ use tienda_shopping;
 create table Producto_base (
 	prod_base_codigo integer auto_increment primary key, -- PK
 	prod_base_nombre char(50) not null,
-	prod_base_descripcion char(50) not null,
+	prod_base_descripcion text not null,
 	prod_base_precio decimal(12,2) not null,
-	prod_base_tiempo decimal(12,2) not null
+	prod_base_tiempo decimal(12,2) not null,
+    prod_base_foto char(255)
 );
 
 create table Personalizacion (
@@ -29,7 +30,8 @@ create table Producto_personalizable (
 
 create table Producto_personalizado (
 	prod_pers_codigo integer auto_increment primary key, -- PK
-	prod_pers_producto_personalizable integer not null, -- FK
+    prod_pers_producto_personalizable integer not null, -- FK
+    prod_pers_personalizacion char(255),
 	prod_pers_estado char(10) not null,
 	prod_pers_tienda integer not null -- FK
 );
@@ -48,22 +50,17 @@ create table Vendedor (
 
 create table Medio_aceptado (
 	medi_acep_tienda integer not null, -- PK FK
-	medi_acep_medio_de_pago integer not null -- PK FK
-);
-
-create table Medio_de_pago (
-	medi_pago_codigo integer auto_increment primary key, -- PK
-    medi_pago_nombre char(20) not null
+	medi_acep_medio_de_pago char(20) not null -- PK FK
 );
 
 create table Factura (
 	fact_codigo integer auto_increment primary key, -- PK
 	fact_fecha timestamp not null,
+    fact_tienda integer not null, -- FK
 	fact_nombre char(50) not null,
 	fact_apellido char(50) not null,
-	fact_tipo_documento char(9) not null,
-	fact_numero_documento char(20) not null,
-	fact_medio_pago integer not null,
+    fact_email char(255) not null,
+	fact_medio_de_pago char(20) not null,
 	fact_total decimal(22,2) not null
 );
 
@@ -83,17 +80,20 @@ alter table Producto_personalizado
     
 alter table Producto_personalizado
 	add foreign key (prod_pers_producto_personalizable) references Producto_personalizable(prod_pers_codigo);
-    
 
 alter table Medio_aceptado
 	add foreign key (medi_acep_tienda) references Tienda(tien_codigo);
     
-alter table Medio_aceptado
-	add foreign key (medi_acep_medio_de_pago) references Medio_de_pago(medi_pago_codigo);
-
 alter table Tienda
 	add foreign key (tien_vendedor) references Vendedor(vend_codigo);
      
 alter table Producto_personalizado
-	add foreign key (prod_pers_producto_personalizable) references Producto_personalizable(prod_pers_codigo)
+	add foreign key (prod_pers_producto_personalizable) references Producto_personalizable(prod_pers_codigo);
+
+alter table Factura
+	add foreign key (fact_tienda) references Tienda(tien_codigo);
+
+
+
+
      
