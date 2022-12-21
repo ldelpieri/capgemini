@@ -42,7 +42,7 @@ public class ControllerTienda {
         List<ProductoInicioTiendaGetDTO> productos = new ArrayList<>();
         for (ProductoPersonalizado producto : tienda.getProductosPersonalizados()) {
             if (producto.sePuedeListar()) {
-                productos.add(new ProductoInicioTiendaGetDTO(producto.getCodigo(), producto.getNombre(), producto.getPrecio(), producto.getFoto()));
+                productos.add(new ProductoInicioTiendaGetDTO(producto.getCodigo(), producto.getNombre(), producto.getPersonalizacion(), producto.getPrecio(), producto.getFoto()));
             }
         }
         if(productos.size() > 0) {

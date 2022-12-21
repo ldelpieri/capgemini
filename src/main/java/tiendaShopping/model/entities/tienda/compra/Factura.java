@@ -6,6 +6,9 @@ import tiendaShopping.model.entities.tienda.MedioDePago;
 import tiendaShopping.model.entities.tienda.Tienda;
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Map;
+
+import static tiendaShopping.model.entities.tienda.MedioDePago.*;
 
 @Entity
 @Table(name = "Factura")
@@ -45,6 +48,15 @@ public class Factura {
         this.medioDePago = medioDePago;
         this.total = total;
     }
-
     public Factura() {}
+
+    public String getMedioDePago() {
+        switch (this.medioDePago) {
+            case "EFECTIVO": return "efectivo";
+            case "TRANSFERENCIA": return  "transferencia";
+            case "TARJETA_DE_CREDITO": return "tarjeta de crédito";
+            case "TARJETA_DE_DEBITO": return "tarjeta de debito";
+        }
+        return null;
+    }
 }

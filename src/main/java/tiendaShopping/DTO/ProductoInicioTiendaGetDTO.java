@@ -11,9 +11,10 @@ public class ProductoInicioTiendaGetDTO {
     private Double precio;
     private String foto;
 
-    public ProductoInicioTiendaGetDTO(Integer codigo, String nombre, Double precio, String foto) {
+    public ProductoInicioTiendaGetDTO(Integer codigo, String nombre, String personalizacion, Double precio, String foto) {
         this.codigo = codigo;
         this.nombre = nombre;
+        this.personalizacion = personalizacion;
         this.precio = precio;
         this.foto = foto;
     }

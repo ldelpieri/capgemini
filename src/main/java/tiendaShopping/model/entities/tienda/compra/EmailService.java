@@ -78,7 +78,7 @@ public class EmailService {
                 for(ItemFactura item : items) {
                     cuerpo +=
                             "                <tr>\n" +
-                            "                  <th scope=\"row\" style=\"text-align: left;\">" + item.getNombre() + "</th>\n" +
+                            "                  <th scope=\"row\" style=\"text-align: left;\">" + item.getNombre() + " - " + item.getProductoPersonalizado().getPersonalizacion() + "</th>\n" +
                             "                  <td>" + item.getCantidad() + "</td>\n" +
                             "                  <td>$" + item.getPrecio() + "</td>\n" +
                             "                  <td>$" + item.getPrecio() * item.getCantidad() + "</td>\n" +
